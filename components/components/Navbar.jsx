@@ -24,8 +24,9 @@ const Navbar = () => {
           }}
         >
           <Image src={logo} alt="logo " className="w-9 h-9 object-contain" />
-          <p className="text-white text-lg font-bold cursor-pointer lg:block hidden">
-            Prakash <span>| Full Stack Developer</span>
+          <p className="text-white  text-lg font-bold cursor-pointer lg:flex hidden">
+            Prakash &nbsp;
+            <span>| Full Stack Developer</span>
           </p>
         </Link>
         <ul className="list-none hidden lg:flex gap-10">
@@ -36,7 +37,7 @@ const Navbar = () => {
                 key={index}
                 className={`${
                   active === item?.title ? "text-white" : "text-secondary"
-                } hover:text-white text-lg font-medium cursor-pointer `}
+                } hover:text-white font-poppins text-lg font-medium cursor-pointer `}
               >
                 <Link href={item?.id}>{item?.title}</Link>
               </li>
@@ -55,15 +56,18 @@ const Navbar = () => {
               toggle ? "hidden" : "flex"
             } p-6 bg-gradient-to-l from-black-200 to-black-100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
-            <ul className="list-none flex justify-end items-start flex-col lg:hidden gap-10">
+            <ul className="list-none flex justify-end items-start flex-col lg:hidden gap-4">
               {navLinks?.map((item, index) => {
                 return (
                   <li
-                    onClick={() => setActive(item?.title)}
+                    onClick={() => {
+                      setActive(item?.title);
+                      setToggle(!toggle);
+                    }}
                     key={index}
                     className={`${
                       active === item?.title ? "text-white" : "text-secondary"
-                    } hover:text-white text-lg font-medium cursor-pointer `}
+                    } font-poppins font-meadium cursor-pointer text-base`}
                   >
                     <Link href={item?.id}>{item?.title}</Link>
                   </li>
